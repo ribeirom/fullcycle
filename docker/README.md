@@ -15,5 +15,4 @@ Requisitos:<br />
 
 ### Usage
   1. Pull no repositório
-  2. Executar da pasta raiz do repositório:
-    docker-compose up -d
+  2. Executar docker-compose up -d
