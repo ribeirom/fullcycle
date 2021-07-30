@@ -1,11 +1,10 @@
-version: '3'
+version: '3.8'
 
 services:
-    app:
+    nodeserver:
         build: 
             context: node
         container_name: app
-        entrypoint: dockerize -wait tcp://db:3306 -timeout 20s docker-entrypoint.sh
         networks:        
             - node_network
         volumes:
@@ -29,7 +28,15 @@ services:
             - MYSQL_ROOT_PASSWORD=root
         networks: 
             - node_network
-
+    
+    nginx:
+        restart: always
+        build:
+            context: nginx
+        ports:
+            - "8080:80"
+        networks:
+            - node_network
 
 networks: 
     node_network:
