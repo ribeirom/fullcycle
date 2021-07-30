@@ -16,3 +16,4 @@ Requisitos:<br />
 ### Usage
   1. Pull no repositório
   2. Executar docker-compose up -d
+  3. Acessar o endereço localhost:8080
