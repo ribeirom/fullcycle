@@ -8,11 +8,6 @@ const config = {
     database: 'nodedb'
 };
 
-//var engines = require('consolidate');
-//app.engine('html', require('ejs'));
-//app.set('views', __dirname + '/views');
-//app.set('view engine', 'ejs');
-
 var path = require('path');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -35,15 +30,6 @@ app.get('/', (req, res) => {
         }
         else { 
             console.log(result);
-            /*if(result.length> 0){
-                for(let index = 0; index < result.length; index++) {
-                    var newRow = $("<tr>");
-                    var cols = "";
-                    cols += '<td> '+ result.rows[index].name +'</td>';
-                    newRow.append(cols);
-                    $("#tableData .tbody").append(newRow);
-                }
-            }*/
             res.render(__dirname + '/views', { userData: result })
         }
     });
