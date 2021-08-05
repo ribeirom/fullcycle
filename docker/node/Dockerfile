@@ -2,7 +2,7 @@ FROM node:15
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY . .
 COPY views /usr/src/app/views
 
 RUN apt-get update && apt-get install -y wget
@@ -12,9 +12,9 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
     && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-RUN npm install \
-    npm install express \    
-    npm install ejs
+# RUN npm install \
+#     npm install express \    
+#     npm install ejs
 
 COPY . . 
 
