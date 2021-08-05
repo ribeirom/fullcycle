@@ -12,11 +12,7 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
     && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-# RUN npm install \
-#     npm install express \    
-#     npm install ejs
-
-COPY . . 
+RUN npm install
 
 EXPOSE 3000
 
