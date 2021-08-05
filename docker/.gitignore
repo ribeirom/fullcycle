@@ -13,18 +13,6 @@ node_modules/
 *.iml
 *.pem
 *.zip
-
-*~
-*.a
-*.la
-*.lo
-*.o
-*.so
-*ib_doublewrite
-*ib_logfile0
-*ib_logfile1
-*ibdata1
-
 *.class
 
 # Mobile Tools for Java (J2ME)
