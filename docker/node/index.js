@@ -15,14 +15,15 @@ app.set('view engine', 'ejs');
 const mysql = require('mysql')
 const connection = mysql.createConnection(config)
 
-var Moniker = require('moniker');
-var names = Moniker.generator([Moniker.adjective, Moniker.noun]);
-var name = names.choose();
-
-const sql = `INSERT INTO people(name) values('` + name + `')`
-connection.query(sql)
-
 app.get('/', (req, res) => {
+    var Moniker = require('moniker');
+    var names = Moniker.generator([Moniker.adjective, Moniker.noun]);
+    var name = names.choose();
+    
+    const sql = `INSERT INTO people(name) values('` + name + `')`
+    connection.query(sql)
+    console.log('Nome ' + name + ' inserido');
+
     connection.query("SELECT name FROM people", (err, result, fields) => {        
         if(err) {
             console.log(err); 
