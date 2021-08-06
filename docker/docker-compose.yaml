@@ -22,9 +22,10 @@ services:
         command: --innodb-use-native-aio=0
         container_name: db
         restart: always
-        tty: true
+        tty: true        
         volumes:
-            - ./mysql:/var/lib/mysql
+            - ./mysql:/docker-entrypoint-initdb.d
+            - ./mysql/db:/var/lib/mysql
         environment: 
             - MYSQL_DATABASE=nodedb
             - MYSQL_ROOT_PASSWORD=root
@@ -32,14 +33,14 @@ services:
             - node_network
     
     nginx:
-        restart: always
-        build:
-            context: nginx
-        ports:
-            - "8080:80"
-        networks:
-            - node_network
+       restart: always
+       build:
+           context: nginx
+       ports:
+           - "8080:80"
+       networks:
+           - node_network
 
 networks: 
     node_network:
-        driver: bridge
+        driver: bridge    
